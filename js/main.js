@@ -9,16 +9,36 @@
 /*----- event listeners -----*/
 
 /*----- functions -----*/
+init();
+
+function init() {
+    // board = new Array(42).fill(null);
+
+
+  render();
+}
+
+
+function TOBENAMED(evt) {
+    //Guards
+
+}
 
 // In response to user interaction (e.g., click)
 // We update ALL impacted state,
 // then lastly, call render
 
-//Guards
 
 // Render's job is to transfer/visualize
 // all state to the DOM
+function render() {
 
-// Tie game
+}
 
-// Player has won!
+function renderMessage() {
+    
+    // Tie game
+
+    
+    // Player has won!
+}
