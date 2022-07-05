@@ -1,13 +1,13 @@
 /*----- constants -----*/
-const COLOR_LOOKUP = {
-        '1': 'blue',
-        '-1': 'yellow',
-        '0': 'white'
+const COLORS = {
+    '0': 'white',
+    '1': 'blue',
+    '-1': 'orange'
 };
 
 const WINNING_PATTERNS = {
 
-}
+};
 
 /*----- app's state (variables) -----*/
 // Array of 42 elements?
@@ -19,12 +19,12 @@ let gameStatus;  // null -> game in play; 1/-1 player win; 'S' -> stalemate
 
 /*----- cached element references -----*/
 
-const squareEls = [];
-const messageEls = 
+const guidesEls = [document.QuerySelectorAll('#guides > div')];
+const messageEls = [];
 const replayBtn = document.querySelector('button');
 
 /*----- event listeners -----*/
-
+document.getElementById('guides').addEventListener('click', handleDrop);
 replayBtn.addEventListener('click', init);
 
 /*----- functions -----*/
@@ -33,13 +33,13 @@ init();
 // board = new Array(42).fill(null);
 function init() {
     board = [
-        [0, 0, 0, 0, 0, 0],    // column 0
+        [1, 0, 0, 0, 0, -1],    // column 0
         [0, 0, 0, 0, 0, 0],    // column 1
         [0, 0, 0, 0, 0, 0],    // column 2
         [0, 0, 0, 0, 0, 0],    // column 3
         [0, 0, 0, 0, 0, 0],    // column 4
         [0, 0, 0, 0, 0, 0],    // column 5
-        [0, 0, 0, 0, 0, 0],    // column 6
+        [1, 0, 0, 0, 0, -1],    // column 6
     ];
     turn = 1;
     render();
@@ -48,7 +48,10 @@ function init() {
 function render() {
     // iterate over the column arrays
     board.forEach(function(colArr, colIdx) {
-        
+        colArr.forEach(function(cellVal, rowIdx) {
+            const cellEl = document.getElementById(`c${colIdx}r${rowIdx}`);
+            cellEl.style.backgroundColor = COLORS[cellVal];
+        });
     });
 }
 
@@ -57,7 +60,7 @@ gameStatus = null;
 
 function TOBENAMED(evt) {
     //Guards
- if ()
+ //if ();
 }
 
 // In response to user interaction (e.g., click)

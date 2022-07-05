@@ -23,18 +23,21 @@ h1 {
   display: grid;
   grid-template-columns: repeat(7, 10vh);
   grid-template-rows: repeat(6, 12vh);
-  border-radius: 50px;
 }
 
 #board > div {
-  border: 0.4vmin solid grey;
+  border-radius: 50px;
   cursor: pointer;
+  margin-top: 8.5px;
+  border: 2.5px solid darkslategray;
+  background-color: whitesmoke;
+  opacity: 0.4;
 }
 
 button {
   margin-top: 5vmin;
   font-size: 4vmin;
-  color: peachpuff;
-  background-color: rebeccapurple;
+  color: rebeccapurple;
+  background-color: lightseagreen;
 }
 
