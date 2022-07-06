@@ -15,7 +15,7 @@ body {
 
 #board {
   display: grid;
-  grid-template-columns: repeat(7, 8vh);
+  grid-template-columns: repeat(7, 9vh);
   grid-template-rows: repeat(6, 10vh);
   background-color: darkgrey;
   opacity: 0.8;
