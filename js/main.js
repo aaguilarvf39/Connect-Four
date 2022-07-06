@@ -15,7 +15,7 @@ let gameStatus;  // 0 -> game in play; 1/-1 player win; 'S' -> stalemate
 
 /*----- cached element references -----*/
 const guideEls = [...document.querySelectorAll('#guides > div')];
-const messageEls = document.querySelector('h1');
+const messageEl = document.querySelector('h1');
 const replayBtn = document.querySelector('button');
 
 /*----- event listeners -----*/
@@ -24,7 +24,6 @@ replayBtn.addEventListener('click', init);
 
 /*----- functions -----*/
 init();
-
 // board = new Array(42).fill(0);
 function init() {
     board = [
@@ -37,7 +36,7 @@ function init() {
       [0, 0, 0, 0, 0, 0],    // column 6
     ];
     turn = 1;
-    winner = 0;
+    gameStatus = 0;
     renderGuides();
     render();
 }
@@ -51,13 +50,14 @@ function render() {
      });
    });
     renderGuides();
+    renderMessage();
 }
 
 // hide or show the guidepoints (if no 0's)
 function renderGuides() {
     guideEls.forEach(function(guideEl, colIdx) {
         guideEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden';
-        if (winner === -1 || winner === 1 ) {
+        if (gameStatus === -1 || gameStatus === 1 ) {
             guideEl.style.visibility = 'hidden'
     };
     });
@@ -75,6 +75,17 @@ function handleDrop(evt) {
    render();
 }
 
+function renderMessage() {
+    if (gameStatus === 0) {
+         messageEl.innerHTML = `Player <span style="color: ${COLORS[turn]}">${COLORS[turn].toUpperCase()}</span>'s Turn`;
+    } else if (gameStatus === 'S') {
+// Stalemate
+        messageEl.textContent = 'Stalemate';
+    } else {
+ // Player has won!
+        messageEl.innerHTML = `Player <span style="color: ${COLORS[gameStatus]}">${COLORS[gameStatus].toUpperCase()}</span>'s Wins!`;
+    }
+}
 // In response to user interaction (e.g., click)
 // We update ALL impacted state,
 // then lastly, call render
@@ -83,17 +94,10 @@ function handleDrop(evt) {
 
 // Render's job is to transfer/visualize
 // all state to the DOM
-function renderMessage() {
-    if (gameStatus === 0) {
-         msgEl.innerHTML = `Player's Turn`;
-    } else if (gameStatus === 'S') {
-// Stalemate
-        msgEl.textContent = 'Stalemate';
-    } else {
- // Player has won!
-        msgEl.innerHTML = `Player's Wins!`;
-    }
-}
+function checkWin(colIdx, rowIdx) {
+    const player = board[colIdx][rowIdx];
+    return checkVertWin(colIdx, rowIdx, player) || checkHorzWin(colIdx, rowIdx, player)
+};
 
 function checkVertWin(colIdx, rowIdx, player) {
     const colArr = board[colIdx];
@@ -103,7 +107,21 @@ function checkVertWin(colIdx, rowIdx, player) {
         count++;
         rowIdx--;
     }
-    return count === 4 ? winner = turn : 0;
+    return count === 4 ? gameStatus = turn : 0;
 }
 
-// const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-simple-countdown-922.mp3');
+function checkHorzWin(colIdx, rowIdx, player) {
+    const colArr = board[colIdx];
+    let count = 1;
+    let idx = colIdx + 1;
+    while (idx < board.length && board [idx][rowIdx] === player) {
+        count++;
+        idx++;
+    }
+    idx = colIdx -1;
+    while((idx >= 0) && board[idx][rowIdx] === player) {
+        count++;
+        idx--;
+    }
+    return count >= 4 ? gameStatus = turn : null;
+}
