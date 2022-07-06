@@ -9,35 +9,48 @@ body {
   background-image: url(https://imgur.com/57B45vo.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 1200px;
+  background-size: 1300px;
   background-color: rebeccapurple;
 }
 
-h1 {
+/*h1 {
   color: plum;
   background-color: black;
   opacity: 0.8;
-}
+}*/
 
 #board {
   display: grid;
-  grid-template-columns: repeat(7, 10vh);
-  grid-template-rows: repeat(6, 12vh);
+  grid-template-columns: repeat(7, 7vh);
+  grid-template-rows: repeat(6, 9vh);
+  background-color: rebeccapurple;
+  opacity: 0.6;
 }
 
 #board > div {
   border-radius: 50px;
   cursor: pointer;
   margin-top: 8.5px;
-  border: 2.5px solid darkslategray;
-  background-color: whitesmoke;
-  opacity: 0.4;
+  border: 2.5px solid black;
+  background-color: gray;
 }
 
 button {
-  margin-top: 5vmin;
-  font-size: 4vmin;
+  margin-top: 4vmin;
+  font-size: 3vmin;
   color: rebeccapurple;
-  background-color: lightseagreen;
+  background-color: orange;
 }
 
+#guides {
+    display: grid;
+    grid-template-columns: repeat(7, 10vh);
+}
+
+#guides > div {
+    height: 10px;
+    border-width: 5px;
+    border-style: groove;
+    border-color: orange;
+    cursor: pointer;
+}

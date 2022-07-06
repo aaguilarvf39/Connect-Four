@@ -33,13 +33,13 @@ init();
 // board = new Array(42).fill(null);
 function init() {
     board = [
-        [1, 0, 0, 0, 0, -1],    // column 0
+        [0, 0, 0, 0, 0, 0],    // column 0
         [0, 0, 0, 0, 0, 0],    // column 1
         [0, 0, 0, 0, 0, 0],    // column 2
         [0, 0, 0, 0, 0, 0],    // column 3
         [0, 0, 0, 0, 0, 0],    // column 4
         [0, 0, 0, 0, 0, 0],    // column 5
-        [1, 0, 0, 0, 0, -1],    // column 6
+        [0, 0, 0, 0, 0, 0],    // column 6
     ];
     turn = 1;
     render();
@@ -55,13 +55,17 @@ function render() {
     });
 }
 
-gameStatus = null;
+// gameStatus = null;
 
+// Update all impacted state, then call render
+function handleDrop(evt) {
+   const colIdx = guidesEls.indexOf(evt.target);
+   if (colIdx === -1) return;
+   const colArr = board[colIdx];
 
-function TOBENAMED(evt) {
-    //Guards
- //if ();
+   render();
 }
+//Guards
 
 // In response to user interaction (e.g., click)
 // We update ALL impacted state,
@@ -83,5 +87,4 @@ function renderMessage() {
     // Player has won!
 }
 
-
-const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-simple-countdown-922.mp3');
+// const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-simple-countdown-922.mp3');
