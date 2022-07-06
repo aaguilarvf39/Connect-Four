@@ -4,20 +4,18 @@ const COLORS = {
     '1': 'blue',
     '-1': 'gold'
 };
-const WINNING_COMBOS = {
 
-};
 /*----- app's state (variables) -----*/
 // Array of 42 elements?
 // Make the board an array?
 
 let board;  // 2D array where nested arrays rep the columns
 let turn;  // 1 or -1; 0 for nobddy home in that cell
-// let gameStatus;  // null -> game in play; 1/-1 player win; 'S' -> stalemate
+let gameStatus;  // 0 -> game in play; 1/-1 player win; 'S' -> stalemate
 
 /*----- cached element references -----*/
 const guideEls = [...document.querySelectorAll('#guides > div')];
-//   const messageEls = [];
+const messageEls = document.querySelector('h1');
 const replayBtn = document.querySelector('button');
 
 /*----- event listeners -----*/
@@ -27,7 +25,7 @@ replayBtn.addEventListener('click', init);
 /*----- functions -----*/
 init();
 
-// board = new Array(42).fill(null);
+// board = new Array(42).fill(0);
 function init() {
     board = [
       [0, 0, 0, 0, 0, 0],    // column 0
@@ -39,6 +37,8 @@ function init() {
       [0, 0, 0, 0, 0, 0],    // column 6
     ];
     turn = 1;
+    winner = 0;
+    renderGuides();
     render();
 }
 
@@ -53,26 +53,27 @@ function render() {
     renderGuides();
 }
 
-// hide or show markers
+// hide or show the guidepoints (if no 0's)
 function renderGuides() {
     guideEls.forEach(function(guideEl, colIdx) {
         guideEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden';
+        if (winner === -1 || winner === 1 ) {
+            guideEl.style.visibility = 'hidden'
+    };
     });
 }
-// gameStatus = null;
 
 // Update all impacted state, then call render
 function handleDrop(evt) {
+    //Guards
    const colIdx = guideEls.indexOf(evt.target);
    if (colIdx === -1) return;
    const colArr = board[colIdx];
-   if (!colArr.includes(0)) return;
    const rowIdx = colArr.indexOf(0);
    colArr[rowIdx] = turn;
    turn *= -1;
    render();
 }
-//Guards
 
 // In response to user interaction (e.g., click)
 // We update ALL impacted state,
@@ -82,16 +83,27 @@ function handleDrop(evt) {
 
 // Render's job is to transfer/visualize
 // all state to the DOM
-//     function render() {
+function renderMessage() {
+    if (gameStatus === 0) {
+         msgEl.innerHTML = `Player's Turn`;
+    } else if (gameStatus === 'S') {
+// Stalemate
+        msgEl.textContent = 'Stalemate';
+    } else {
+ // Player has won!
+        msgEl.innerHTML = `Player's Wins!`;
+    }
+}
 
-//}
-
-//    function renderMessage() {
-    
-    // Tie game
-
-
-    // Player has won!
-//}
+function checkVertWin(colIdx, rowIdx, player) {
+    const colArr = board[colIdx];
+    let count = 1;
+    rowIdx--;
+    while (colArr[rowIdx] === player && rowIdx >= 0) {
+        count++;
+        rowIdx--;
+    }
+    return count === 4 ? winner = turn : 0;
+}
 
 // const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-simple-countdown-922.mp3');

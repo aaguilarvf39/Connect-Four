@@ -13,18 +13,18 @@ body {
   background-color: rebeccapurple;
 }
 
-/*h1 {
+h1 {
   color: plum;
   background-color: black;
   opacity: 0.8;
-}*/
+}
 
 #board {
   display: grid;
   grid-template-columns: repeat(7, 8vh);
   grid-template-rows: repeat(6, 10vh);
   background-color: darkgrey;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 #board > div {
@@ -38,8 +38,8 @@ body {
 button {
   margin-top: 4vmin;
   font-size: 3vmin;
-  color: rgb(188, 133, 243);
-  background-color: whitesmoke;
+  /*color: rgb(188, 133, 243);
+  background-color: whitesmoke;*/
 }
 
 #guides {
