@@ -42,12 +42,12 @@ button {
   background-color: whitesmoke;
 }
 
-#guide {
+#guides {
     display: grid;
     grid-template-columns: repeat(7, 10vh);
 }
 
-#guide > div {
+#guides > div {
     height: 10px;
     border-width: 5px;
     border-style: ridge;

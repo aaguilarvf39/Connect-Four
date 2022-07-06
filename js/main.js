@@ -1,8 +1,8 @@
 /*----- constants -----*/
 const COLORS = {
     '0': 'white',
-    '1': 'purple',
-    '-1': 'orange'
+    '1': 'blue',
+    '-1': 'gold'
 };
 const WINNING_COMBOS = {
 
@@ -16,13 +16,12 @@ let turn;  // 1 or -1; 0 for nobddy home in that cell
 // let gameStatus;  // null -> game in play; 1/-1 player win; 'S' -> stalemate
 
 /*----- cached element references -----*/
-
-const guideEls = [document.querySelectorAll('#guide > div')];
+const guideEls = [...document.querySelectorAll('#guides > div')];
 //   const messageEls = [];
 const replayBtn = document.querySelector('button');
 
 /*----- event listeners -----*/
-document.getElementById('guide').addEventListener('click', handleDrop);
+document.getElementById('guides').addEventListener('click', handleDrop); 
 replayBtn.addEventListener('click', init);
 
 /*----- functions -----*/
@@ -67,6 +66,7 @@ function handleDrop(evt) {
    const colIdx = guideEls.indexOf(evt.target);
    if (colIdx === -1) return;
    const colArr = board[colIdx];
+   if (!colArr.includes(0)) return;
    const rowIdx = colArr.indexOf(0);
    colArr[rowIdx] = turn;
    turn *= -1;
