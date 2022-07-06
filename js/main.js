@@ -66,32 +66,32 @@ function renderGuides() {
 // Update all impacted state, then call render
 function handleDrop(evt) {
     //Guards
+   if (gameStatus != 0) return;
    const colIdx = guideEls.indexOf(evt.target);
    if (colIdx === -1) return;
    const colArr = board[colIdx];
    const rowIdx = colArr.indexOf(0);
    colArr[rowIdx] = turn;
    turn *= -1;
+   winner = checkWin(colIdx, rowIdx);
    render();
 }
 
 function renderMessage() {
     if (gameStatus === 0) {
-         messageEl.innerHTML = `Player <span style="color: ${COLORS[turn]}">${COLORS[turn].toUpperCase()}</span>'s Turn`;
-    } else if (gameStatus === 'S') {
+        messageEl.innerHTML = `Player <span style="color: ${COLORS[turn]}">${COLORS[turn].toUpperCase()}</span>'s Turn`;
+   } else if (gameStatus === 'S') {
 // Stalemate
         messageEl.textContent = 'Stalemate';
     } else {
  // Player has won!
-        messageEl.innerHTML = `Player <span style="color: ${COLORS[gameStatus]}">${COLORS[gameStatus].toUpperCase()}</span>'s Wins!`;
+        messageEl.innerHTML = `Player <span style="color: ${COLORS[gameStatus * -1]}">${COLORS[gameStatus * -1].toUpperCase()}</span>'s Wins!`;
     }
 }
+
 // In response to user interaction (e.g., click)
 // We update ALL impacted state,
 // then lastly, call render
-
-
-
 // Render's job is to transfer/visualize
 // all state to the DOM
 function checkWin(colIdx, rowIdx) {
@@ -101,12 +101,15 @@ function checkWin(colIdx, rowIdx) {
 
 function checkVertWin(colIdx, rowIdx, player) {
     const colArr = board[colIdx];
+   // const playe = board[colIdx][rowIdx];
     let count = 1;
     rowIdx--;
-    while (colArr[rowIdx] === player && rowIdx >= 0) {
+
+    while (board[colIdx][rowIdx] === player && rowIdx >= 0) {
         count++;
         rowIdx--;
     }
+    console.log(count);
     return count === 4 ? gameStatus = turn : 0;
 }
 
@@ -118,10 +121,20 @@ function checkHorzWin(colIdx, rowIdx, player) {
         count++;
         idx++;
     }
-    idx = colIdx -1;
+    idx = colIdx - 1;
     while((idx >= 0) && board[idx][rowIdx] === player) {
         count++;
         idx--;
     }
-    return count >= 4 ? gameStatus = turn : null;
+    while((idx >= 0) && board[idx][rowIdx] === player) {
+        count++;
+        idx--;
+    }
+
+    return count >= 4 ? gameStatus = turn : 0;
+}
+
+function checkDiagWin(colIdx, rowIdx, player) {
+    const colArr = board[colIdx];
+    let count = 1;
 }
