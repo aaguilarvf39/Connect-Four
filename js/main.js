@@ -36,7 +36,7 @@ function init() {
       [0, 0, 0, 0, 0, 0],    // column 6
     ];
     turn = 1;
-    gameStatus = 0;
+    winner = 0;
     renderGuides();
     render();
 }
@@ -57,7 +57,7 @@ function render() {
 function renderGuides() {
     guideEls.forEach(function(guideEl, colIdx) {
         guideEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden';
-        if (gameStatus === -1 || gameStatus === 1 ) {
+        if (winner === -1 || winner === 1 ) {
             guideEl.style.visibility = 'hidden'
     };
     });
@@ -66,7 +66,7 @@ function renderGuides() {
 // Update all impacted state, then call render
 function handleDrop(evt) {
     //Guards
-   if (gameStatus != 0) return;
+   if (winner != 0) return;
    const colIdx = guideEls.indexOf(evt.target);
    if (colIdx === -1) return;
    const colArr = board[colIdx];
@@ -78,14 +78,14 @@ function handleDrop(evt) {
 }
 
 function renderMessage() {
-    if (gameStatus === 0) {
+    if (winner === 0) {
         messageEl.innerHTML = `Player <span style="color: ${COLORS[turn]}">${COLORS[turn].toUpperCase()}</span>'s Turn`;
-   } else if (gameStatus === 'S') {
+   } else if (winner === 'S') {
 // Stalemate
-        messageEl.textContent = 'Stalemate';
+        messageEl.textContent = 'Stalemate...';
     } else {
  // Player has won!
-        messageEl.innerHTML = `Player <span style="color: ${COLORS[gameStatus * -1]}">${COLORS[gameStatus * -1].toUpperCase()}</span>'s Wins!`;
+        messageEl.innerHTML = `Player <span style="color: ${COLORS[winner * -1]}">${COLORS[winner * -1].toUpperCase()}</span>'s Wins!`;
     }
 }
 
@@ -99,7 +99,8 @@ function checkWin(colIdx, rowIdx) {
     return checkVertWin(colIdx, rowIdx, player) ||
     checkHorzWin(colIdx, rowIdx, player) ||
     checkDiagWinLeft(colIdx, rowIdx)||
-    checkDiagWinRight(colIdx, rowIdx);
+    checkDiagWinRight(colIdx, rowIdx) ||
+    (board.flat().includes(0) ? 0: 'S');
 }
 
 function checkVertWin(colIdx, rowIdx, player) {
@@ -112,7 +113,7 @@ function checkVertWin(colIdx, rowIdx, player) {
         rowIdx--;
     }
     console.log(count);
-    return count === 4 ? gameStatus = turn : 0;
+    return count === 4 ? winner = turn : 0;
 }
 
 function checkHorzWin(colIdx, rowIdx, player) {
@@ -133,7 +134,7 @@ function checkHorzWin(colIdx, rowIdx, player) {
         idx--;
     }
 
-    return count >= 4 ? gameStatus = turn : 0;
+    return count >= 4 ? winner = turn : 0;
 }
 
 function checkDiagWinRight(colIdx, rowIdx) {
@@ -153,7 +154,7 @@ function checkDiagWinRight(colIdx, rowIdx) {
         idx1--;
         idx2--; 
     }
-    return count >= 4 ? gameStatus = turn : null  
+    return count >= 4 ? winner = turn : 0; 
 }
 
 function checkDiagWinLeft(colIdx, rowIdx) {
@@ -174,5 +175,5 @@ function checkDiagWinLeft(colIdx, rowIdx) {
             idx1++;
             idx2--; 
         }
-        return count >= 4 ? gameStatus = turn : null;
+        return count >= 4 ? winner = turn : 0;
     }
