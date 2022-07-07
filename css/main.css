@@ -26,8 +26,8 @@ body {
   border-radius: 50px;
   cursor: pointer;
   margin-top: 8.5px;
-  border: 2.5px solid gray;
-  opacity: 0.5;
+  border: 2.5px solid;
+  opacity: 0.6;
 }
 
 button {
@@ -43,12 +43,12 @@ button {
 
 #guides > div {
     height: 10px;
-    width: 47px;
+    width: 52px;
     border-width: 5px;
     border-style: ridge;
-    border-color: white;
-    border-radius: 50px;
+    border-color: royalblue;
     cursor: pointer;
+    box-shadow: 1px 1px 3px 5px gold;
 }
 h1 {
     background-color: lightseagreen;
