@@ -79,13 +79,13 @@ function handleDrop(evt) {
 
 function renderMessage() {
     if (winner === 0) {
-        messageEl.innerHTML = `Player <span style="color: ${COLORS[turn]}">${COLORS[turn].toUpperCase()}</span>'s Turn`;
+        messageEl.innerHTML = `<span style='color: teal'>Player</span> <span style="color: ${COLORS[turn]}">${COLORS[turn].toUpperCase()}</span><span style='color: teal'>'s</span> <span style='color: teal'>Turn</span>`;
    } else if (winner === 'S') {
 // Stalemate
         messageEl.textContent = 'Stalemate...';
     } else {
  // Player has won!
-        messageEl.innerHTML = `Player <span style="color: ${COLORS[winner * -1]}">${COLORS[winner * -1].toUpperCase()}</span>'s Wins!`;
+        messageEl.innerHTML = `<span style='color: teal'>Player</span> <span style="color: ${COLORS[winner * -1]}">${COLORS[winner * -1].toUpperCase()}</span><span style='color: teal'>'s</span> <span style='color: teal'>Wins!</span>`;
     }
 }
 
@@ -112,7 +112,6 @@ function checkVertWin(colIdx, rowIdx, player) {
         count++;
         rowIdx--;
     }
-    console.log(count);
     return count === 4 ? winner = turn : 0;
 }
 
@@ -133,8 +132,7 @@ function checkHorzWin(colIdx, rowIdx, player) {
         count++;
         idx--;
     }
-
-    return count >= 4 ? winner = turn : 0;
+     return count >= 4 ? winner = turn : 0;
 }
 
 function checkDiagWinRight(colIdx, rowIdx) {

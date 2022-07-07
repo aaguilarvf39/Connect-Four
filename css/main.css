@@ -9,7 +9,7 @@ body {
   background-image: url(https://imgur.com/LxseBIP.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 1100px;
+  background-size: 1470px;
   background-color: black;
 }
 
@@ -17,8 +17,9 @@ body {
   display: grid;
   grid-template-columns: repeat(7, 9vh);
   grid-template-rows: repeat(6, 10vh);
-  background-image: url(https://imgur.com/P3cbO1I.gif);
-  background-size: 730px;
+  background-image: url(https://imgur.com/cPUXyqJ.gif);
+  background-size: 600px;
+  background-position: center;
 }
 
 #board > div {
@@ -26,28 +27,34 @@ body {
   cursor: pointer;
   margin-top: 8.5px;
   border: 2.5px solid gray;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 button {
   margin-top: 4vmin;
   font-size: 3vmin;
-  /*color: rgb(188, 133, 243);
-  background-color: whitesmoke;*/
+  cursor: pointer;
 }
 
 #guides {
     display: grid;
-    grid-template-columns: repeat(7, 10vh);
+    grid-template-columns: repeat(7, 9vh);
 }
 
 #guides > div {
     height: 10px;
+    width: 47px;
     border-width: 5px;
     border-style: ridge;
     border-color: white;
+    border-radius: 50px;
     cursor: pointer;
 }
 h1 {
-  
+    background-color: lightseagreen;
+    color: rebeccapurple;
+    text-align: center;
+    -webkit-text-stroke: 1px black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 300%;
 }
