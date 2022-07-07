@@ -6,45 +6,55 @@ body {
   margin: 0;
   height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url(https://imgur.com/57B45vo.jpg);
+  background-image: url(https://imgur.com/LxseBIP.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 1300px;
-  background-color: rebeccapurple;
+  background-size: 1470px;
+  background-color: black;
 }
 
 #board {
   display: grid;
-  grid-template-columns: repeat(7, 8vh);
+  grid-template-columns: repeat(7, 9vh);
   grid-template-rows: repeat(6, 10vh);
-  background-color: darkgrey;
-  opacity: 0.8;
+  background-image: url(https://imgur.com/cPUXyqJ.gif);
+  background-size: 600px;
+  background-position: center;
 }
 
 #board > div {
   border-radius: 50px;
   cursor: pointer;
   margin-top: 8.5px;
-  border: 2.5px solid gray;
-  background-color: azure;
+  border: 2.5px solid;
+  opacity: 0.6;
 }
 
 button {
   margin-top: 4vmin;
   font-size: 3vmin;
-  /*color: rgb(188, 133, 243);
-  background-color: whitesmoke;*/
+  cursor: pointer;
 }
 
 #guides {
     display: grid;
-    grid-template-columns: repeat(7, 10vh);
+    grid-template-columns: repeat(7, 9vh);
 }
 
 #guides > div {
     height: 10px;
+    width: 52px;
     border-width: 5px;
     border-style: ridge;
-    border-color: white;
+    border-color: royalblue;
     cursor: pointer;
+    box-shadow: 1px 1px 3px 5px gold;
+}
+h1 {
+    background-color: lightseagreen;
+    color: rebeccapurple;
+    text-align: center;
+    -webkit-text-stroke: 1px black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 300%;
 }
