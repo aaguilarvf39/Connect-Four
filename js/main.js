@@ -15,7 +15,7 @@ let gameStatus;  // 0 -> game in play; 1/-1 player win; 'S' -> stalemate
 
 /*----- cached element references -----*/
 const guideEls = [...document.querySelectorAll('#guides > div')];
-const messageEl = document.querySelector('h1');
+const messageEl = document.querySelector('h2');
 const replayBtn = document.querySelector('button');
 
 /*----- event listeners -----*/
