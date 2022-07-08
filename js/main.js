@@ -103,7 +103,7 @@ function checkWin(colIdx, rowIdx) {
 }
 
 function checkVertWin(colIdx, rowIdx, player) {
-   // const playe = board[colIdx][rowIdx];
+   // const player = board[colIdx][rowIdx];
     let count = 1;
     rowIdx--;
     while (board[colIdx][rowIdx] === player && rowIdx >= 0) {

@@ -1,26 +1,9 @@
-// Game played with 2 players
+#Connect Four
 
-// Alternating turns between player 1 and 2
+[Play Connect Four!](https://aaguilarvf39.github.io/Connect-Four/)
 
-// Pieces can be vertical, horizontal, and/or diagonal.
+* A two player strategy game inspired by the original Milton Bradley 1974 classic.
+* Seven column six row vertical grid.
+* First player to line 4 pieces vertically, horizontally, or diagonally wins.
 
-// First to 4 of the same colored set circles/icons wins.
 
-// Can play offensivley or defense.
-
-// Each player can only put one circle/icon at a time.
-
-// Stalemate
-
-// PLayer has won
-
-/*------ cached element references ------*/
-// Array of 42 elements
-
-/*----- cached element references -----*/
-
-/*----- functions -----*/
-
-// In response to user interaction (e.g., click)
-
-// Drop piece function that drops to bottom.
