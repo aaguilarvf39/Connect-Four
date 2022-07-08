@@ -17,9 +17,9 @@ Players take turns placing 1 of the same colored circle at a time on the 42 hole
 | Game In Play | <img src="https://i.imgur.com/hDnXOTh.jpg" width="700"> |
 | Blue Win | <img src="https://i.imgur.com/Isiec4E.jpg" width="700"> |
 
-## Built With
-* Vanilla Javascript
-* HTML
-* CSS
-* VS Code
-* Github
+## Built With:
+![JavaScript](https://img.shields.io/badge/-JavaScript-333?style=flat&logo=javascript) 
+![HTML5](https://img.shields.io/badge/-HTML5-333?style=flat&logo=html5)
+![CSS3](https://img.shields.io/badge/-CSS-333?style=flat&logo=css3)
+![Github](https://img.shields.io/badge/-GitHub-333?style=flat&logo=github)
+![VSCode](https://img.shields.io/badge/-VS_Code-333?style=flat&logo=visualstudio)
