@@ -6,4 +6,10 @@
 * Seven column six row vertical grid.
 * First player to line 4 pieces vertically, horizontally, or diagonally wins.
 
-<img src="https://i.imgur.com/r7vvT4W.jpg" >
+## Screenshots
+
+<img src="https://i.imgur.com/r7vvT4W.jpg" width="900" >
+
+<img src="https://i.imgur.com/hDnXOTh.jpg" width="900">
+
+<img src="https://i.imgur.com/Isiec4E.jpg" width="900">
