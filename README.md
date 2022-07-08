@@ -2,7 +2,7 @@
 
 ### [Play Connect Four (You know you want to.)](https://aaguilarvf39.github.io/Connect-Four/)
 
-## :memo::pencil: Description
+## :memo: Description
 * A two player strategy game inspired by the original Milton Bradley 1974 classic.
 * Seven column six row vertical grid.
 * Recognizing patterns early on is key to a win.
@@ -23,3 +23,9 @@ Players take turns placing 1 of the same colored circle at a time on the 42 hole
 ![CSS3](https://img.shields.io/badge/-CSS-333?style=flat&logo=css3)
 ![Github](https://img.shields.io/badge/-GitHub-333?style=flat&logo=github)
 ![VSCode](https://img.shields.io/badge/-VS_Code-333?style=flat&logo=visualstudio)
+
+## :beginner: Next Steps
+### Coming Soon
+- [] Add sounds for start/end of game
+- [] Add in more CSS features/polishing
+- [] Introduce another game mode against computer
