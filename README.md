@@ -1,5 +1,9 @@
 # Connect Four
 
+## Jesus Aguilar
+<a href="mailto:aaguilarvf39@gmail.com" target="_blank">
+      <img src="https://img.shields.io/badge/-youremail@gmail.com>-c14438?style=flat&logo=Gmail&logoColor=white"></a>
+
 ### [Play Connect Four (You know you want to.)](https://aaguilarvf39.github.io/Connect-Four/)
 
 ## :memo: Description
