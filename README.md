@@ -1,6 +1,6 @@
 # Connect Four
 
-### [Play Connect Four (You know you want to.)](https://aaguilarvf39.github.io/Connect-Four/)
+### [Play Connect :Four: (You know you want to.)](https://aaguilarvf39.github.io/Connect-Four/)
 
 ## Description
 * A two player strategy game inspired by the original Milton Bradley 1974 classic.
