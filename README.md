@@ -8,8 +8,8 @@
 
 ## Screenshots
 
-<img src="https://i.imgur.com/r7vvT4W.jpg" width="900" >
+<img src="https://i.imgur.com/r7vvT4W.jpg" width="700" >
 
-<img src="https://i.imgur.com/hDnXOTh.jpg" width="900">
+<img src="https://i.imgur.com/hDnXOTh.jpg" width="700">
 
-<img src="https://i.imgur.com/Isiec4E.jpg" width="900">
+<img src="https://i.imgur.com/Isiec4E.jpg" width="700">
